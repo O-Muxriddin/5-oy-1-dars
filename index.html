@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  </head>
+  <body class="bg-base-200 min-h-screen">
+    <header class="max-w-250 mx-auto pt-5 pb-5 sm:max-w-150 ">
+      <div class="navbar bg-base-100 shadow-sm">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl pl-5" href="index.html">API</a>
+        </div>
+        <div class="flex gap-2 btn btn-ghost text-xl flex justify-end ">
+          <input type="text" placeholder="Search" id="search" class=" input-bordered w-24 md:w-auto " />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="pt-25 mx-auto max-w-250  flex flex-wrap gap-10 md:pl-10 sm:justify-center items-center" id="container">
+      </section>
+    </main>
+
+    <!-- script -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
