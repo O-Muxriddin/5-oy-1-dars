@@ -13,6 +13,9 @@ fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
         });
     }
 )
+.catch(err => {
+  showError("405: Method Not Allowed");
+});
 .finally(
     (res)=>{
         uiWrite(elementsArray);
