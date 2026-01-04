@@ -2,39 +2,36 @@ let elSearch = document.getElementById("search");
 
 let elementsArray = [];
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
-// .then(
-//     (res)=>{
-//         return res.json();
-//     }
-// ).then(
-//     (res)=>{
-//         res.data.forEach(el => {
-//             elementsArray.push(el);
-//         });
-//     }
-// )
-// .catch(err => {
-//   showError("405: Method Not Allowed");
-// })
-// .finally(
-//     (res)=>{
-//         uiWrite(elementsArray);
-//     }
-// )
-.then(res => {
-    if (res.status === 405) {
-      document.getElementById("error").style.display = "block";
-      return;
+.then(
+    (res)=>{
+      if (res.status ===405){
+        elError("405: Method Not Allowed");
+        return;
+      }
+        return res.json();
     }
-    return res.json();
-  })
-  .then(data => {
-    if (!data) return; 
-  })
-  .catch(() => {
-  
-    document.getElementById("error").style.display = "block";
-  });
+).then(
+    (res)=>{
+        res.data.forEach(el => {
+            elementsArray.push(el);
+        });
+    }
+)
+.catch(err => {
+  elError("Server javob bermadi uzur");
+})
+.finally(
+    (res)=>{
+        uiWrite(elementsArray);
+    }
+)
+
+function elError (ell) {
+  const errorEl = document.getElementById("error");
+  el.textContent =ell;
+  el.style.display="block";
+}
+
 
 function uiWrite(arr) {
      elementsArray[3].image="https://www.hyundai.com/content/dam/hyundai/uz/ru/images/find-a-car/pip/elantra-2023/highlights/elntra-2023-gallery-3.jpg";
