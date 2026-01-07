@@ -8,7 +8,38 @@
     <link rel="stylesheet" href="css/output.css" />
 
   </head>
-    <body>
+    <body >
+      <header class="my-10 ">
+             <div class="navbar bg-base-100 shadow-sm pl-10 w-[70%] mx-auto rounded-[30px]  ">
+              <div class="flex-1">
+                 <a class="btn btn-ghost text-xl">Car Card</a>
+               </div>
+               <div class="flex gap-2">
+                 <input type="text" placeholder="Search" class="input rounded-[30px] input-bordered w-24 md:w-auto" />
+                 <div class="dropdown dropdown-end">
+                   <div tabindex="0" role="button" class="btn btn-ghost  bg-black btn-circle avatar">
+                     <div class="w-10 rounded-full">
+                       <img 
+                         alt="Tailwind CSS Navbar component"
+                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAa42l3k_kysfaWnycHKRi0qaJn_GxU7_JA&s" />
+                     </div>
+                   </div>
+                   <ul
+                     tabindex="-1"
+                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                     <li>
+                       <a class="justify-between">
+                         Profile
+                         <span class="badge">New</span>
+                       </a>
+                     </li>
+                     <li><a>Settings</a></li>
+                     <li><a>Logout</a></li>
+                   </ul>
+                 </div>
+               </div>
+             </div>
+      </header>
     <div class="grid grid-cols-3 gap-10" id="container"></div>
     <div class="grid grid-cols-3 gap-10" id="loader"></div>
     <template id="templateCard">
