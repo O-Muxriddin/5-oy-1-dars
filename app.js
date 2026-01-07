@@ -1,73 +1,56 @@
-let elSearch = document.getElementById("search");
+let elContainer = document.getElementById("container");
+let elTemlate = document.getElementById("templateCard");
+let elTemlateSkeleton = document.getElementById("templateSkeleton");
+let elLoader = document.getElementById("loader");
+let elDelete = document.getElementById("deleteCard");
 
-let elementsArray = [];
+
+loader(true);
 fetch("https://json-api.uz/api/project/fn44-amaliyot/cars")
-.then(
-    (res)=>{
-      if (res.status ===405){
-        elError("405: Method Not Allowed");
-        return;
-      }
-        return res.json();
-    }
-).then(
-    (res)=>{
-        res.data.forEach(el => {
-            elementsArray.push(el);
-        });
-    }
-)
-.catch(err => {
-  elError("Server javob bermadi uzur");
+  .then((res) => {
+    return res.json();
+  })
+  .then((res) => {
+    ui(res.data);
+  })
+  .catch(() => {
+    console.log("xatolik");
+  })
+  .finally(() => {
+    loader(false);
+  });
+
+function loader(boolean) {
+  elLoader.innerHTML = null;
+
+  if (boolean) {
+    Array.from({ length: 7 }, (_, index) => index).forEach(() => {
+      elLoader.appendChild(elTemlateSkeleton.cloneNode(true).content);
+    });
+  }
+}
+function ui(data) {
+  data.forEach((element) => {
+    const clone = elTemlate.cloneNode(true).content;
+
+    clone.querySelector("h2").innerText = element.name
+      ? element.name
+      : "no title";
+    clone.querySelector("p").innerText = element.equipment.comfort.join("  ");
+    clone.querySelector("img").src = element.image;
+    clone.querySelector("button").id = element.id;
+   
+    elContainer.appendChild(clone);
+  });
+}
+
+// Delete section
+
+elContainer.addEventListener("click",(evt)=>{
+if (evt.target.classList.contains("js-delete-button")) {
+console.log(evt.target.id);
+
+}
 })
-.finally(
-    (res)=>{
-        uiWrite(elementsArray);
-    }
-)
 
-function elError (ell) {
-  const errorEl = document.getElementById("error");
-  el.textContent =ell;
-  el.style.display="block";
-}
-
-
-function uiWrite(arr) {
-     elementsArray[3].image="https://www.hyundai.com/content/dam/hyundai/uz/ru/images/find-a-car/pip/elantra-2023/highlights/elntra-2023-gallery-3.jpg";
-    document.getElementById("container").innerHTML=null;
-    arr.forEach((el)=>{
-        let htmlElements = 
-        `<div class="card bg-base-100 w-96 shadow-sm">
-            <figure>
-              <img id="card-img"
-                src="${el.image}"
-                alt="${el.name}"
-                class="w-full min-h-[210px]"
-              />
-            </figure>
-            <div class="card-body">
-              <h2 class="card-title" id="card-title">${el.name}</h2>
-              <p  id="card-text">
-                ${el.type}
-              </p>
-              <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-              </div>
-            </div>
-          </div>
-        `;
-        document.getElementById("container").innerHTML+=htmlElements;
-    });
-}
-
-function searchUiWrite(val) {
-    let filteredArray = []
-    elementsArray.filter(el=>{
-        if(el.name.toLowerCase().includes(val.toLowerCase())) return filteredArray.push(el);
-    });
-    uiWrite(filteredArray);
-};
-
-elSearch.addEventListener("input",(evt)=>searchUiWrite(evt.target.value));
 
