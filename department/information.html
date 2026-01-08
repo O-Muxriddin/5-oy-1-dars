@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Information</title>
+    <link rel="stylesheet" href="../css/output.css" />
   </head>
   <body>
-    <header class="flex p-5 text-9xl">
-      <h1><a href="../index.html">
+    <header class="">
+      <a
+        href="../index.html"
+        class="flex items-center gap-2 pt-10 pl-15 pb-5 text-2xl"
+      >
         <svg
           width="15"
           height="15"
@@ -23,61 +27,70 @@
           ></path>
         </svg>
         Back</a
-      ></h1>
+      >
     </header>
-    <main class="flex items-center justify-center gap-10">
-        <h2>Uzbek tili</h2>
-      <ul class="space-y-2 text-gray-800">
-        <li><strong>Nomi:</strong> Chevrolet Malibu</li>
-        <li><strong>Trim:</strong> LT</li>
-        <li><strong>Avlod:</strong> Eighth</li>
-        <li><strong>Yil:</strong> 2022</li>
-        <li class="flex items-center gap-2">
-          <strong>Rang:</strong>
-          <span
-            class="inline-block w-4 h-4 rounded-full border"
-            style="background-color: #4682b4"
-          ></span>
-          Polat ko'k
-        </li>
-        <li><strong>Kategoriya:</strong> Sedan</li>
-        <li><strong>Eshiklar soni:</strong> 4 ta</li>
-        <li><strong>O‘rindiqlar soni:</strong> 5 ta</li>
-        <li><strong>Maksimal tezlik:</strong> 210 km/h</li>
-        <li><strong>Tezlanish:</strong> 0–100 km/h — 8.6 soniya</li>
-        <li><strong>Dvigatel:</strong> 1.5L Turbo I4</li>
-        <li><strong>Ot kuchi:</strong> 160 HP</li>
-        <li><strong>Yoqilg‘i turi:</strong> Benzin</li>
-      </ul>
-         <h2>Ingliz tili</h2>
-      <ul class="space-y-2 text-gray-800">
-        <li><strong>Name:</strong> Chevrolet Malibu</li>
-        <li><strong>Trim:</strong> LT</li>
-        <li><strong>Generation:</strong> Eighth</li>
-        <li><strong>Year:</strong> 2022</li>
+    <main class="grid grid-cols md:grid-cols-2 gap-8 ml-20 mb-10">
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Uzbek tili</h2>
+        <ul class="space-y-2 text-gray-800">
+          <li><strong>Nomi:</strong> Chevrolet Malibu</li>
+          <li><strong>Trim:</strong> LT</li>
+          <li><strong>Avlod:</strong> Eighth</li>
+          <li><strong>Yil:</strong> 2022</li>
+          <li class="flex items-center gap-2">
+            <strong>Rang:</strong>
+            <span
+              class="inline-block w-4 h-4 rounded-full border"
+              style="background-color: #4682b4"
+            ></span>
+            Polat ko'k
+          </li>
+          <li><strong>Kategoriya:</strong> Sedan</li>
+          <li><strong>Eshiklar soni:</strong> 4 ta</li>
+          <li><strong>O‘rindiqlar soni:</strong> 5 ta</li>
+          <li><strong>Maksimal tezlik:</strong> 210 km/h</li>
+          <li><strong>Tezlanish:</strong> 0–100 km/h — 8.6 soniya</li>
+          <li><strong>Dvigatel:</strong> 1.5L Turbo I4</li>
+          <li><strong>Ot kuchi:</strong> 160 HP</li>
+          <li><strong>Yoqilg‘i turi:</strong> Benzin</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl font-semibold mb-2">Ingliz tili</h2>
+        <ul class="space-y-2 text-gray-800">
+          <li><strong>Name:</strong> Chevrolet Malibu</li>
+          <li><strong>Trim:</strong> LT</li>
+          <li><strong>Generation:</strong> Eighth</li>
+          <li><strong>Year:</strong> 2022</li>
 
-        <li class="flex items-center gap-2">
-          <strong>Color:</strong>
-          <span
-            class="inline-block w-4 h-4 rounded-full border"
-            style="background-color: #4682b4"
-          ></span>
-          Steel Blue
-        </li>
+          <li class="flex items-center gap-2">
+            <strong>Color:</strong>
+            <span
+              class="inline-block w-4 h-4 rounded-full border"
+              style="background-color: #4682b4"
+            ></span>
+            Steel Blue
+          </li>
 
-        <li><strong>Category:</strong> Sedan</li>
-        <li><strong>Doors:</strong> 4</li>
-        <li><strong>Seats:</strong> 5</li>
-        <li><strong>Top Speed:</strong> 210 km/h</li>
-        <li><strong>Acceleration:</strong> 0–100 km/h in 8.6s</li>
-        <li><strong>Engine:</strong> 1.5L Turbo I4</li>
-        <li><strong>Horsepower:</strong> 160 HP</li>
-        <li><strong>Fuel Type:</strong> Petrol</li>
-      </ul>
+          <li><strong>Category:</strong> Sedan</li>
+          <li><strong>Doors:</strong> 4</li>
+          <li><strong>Seats:</strong> 5</li>
+          <li><strong>Top Speed:</strong> 210 km/h</li>
+          <li><strong>Acceleration:</strong> 0–100 km/h in 8.6s</li>
+          <li><strong>Engine:</strong> 1.5L Turbo I4</li>
+          <li><strong>Horsepower:</strong> 160 HP</li>
+          <li><strong>Fuel Type:</strong> Petrol</li>
+        </ul>
+      </div>
     </main>
     <footer>
       <div class="tabs tabs-lift">
-        <input type="radio" name="my_tabs_3" class="tab" aria-label="" />
+        <input
+          type="radio"
+          name="my_tabs_3"
+          class="tab"
+          aria-label="Ctiy or Shahar"
+        />
         <div class="tab-content bg-base-100 border-base-300 p-6">
           9.2 L/100km
         </div>
@@ -86,14 +99,19 @@
           type="radio"
           name="my_tabs_3"
           class="tab"
-          aria-label="Tab 2"
+          aria-label="Highway or Trassa"
           checked="checked"
         />
         <div class="tab-content bg-base-100 border-base-300 p-6">
           6.7 L/100km
         </div>
 
-        <input type="radio" name="my_tabs_3" class="tab" aria-label="Tab 3" />
+        <input
+          type="radio"
+          name="my_tabs_3"
+          class="tab"
+          aria-label="Combined or Ikkalasida"
+        />
         <div class="tab-content bg-base-100 border-base-300 p-6">
           8.1 L/100km
         </div>
