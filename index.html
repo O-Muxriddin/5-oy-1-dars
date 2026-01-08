@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,59 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API</title>
     <link rel="stylesheet" href="css/output.css" />
-
   </head>
-    <body >
-      <header class="my-10 ">
-             <div class="navbar bg-base-100 shadow-sm pl-10 w-[70%] mx-auto rounded-[30px]  ">
-              <div class="flex-1">
-                 <a class="btn btn-ghost text-xl">Car Card</a>
-               </div>
-               <div class="flex gap-2">
-                 <input type="text" placeholder="Search" class="input rounded-[30px] input-bordered w-24 md:w-auto" />
-                 <div class="dropdown dropdown-end">
-                   <div tabindex="0" role="button" class="btn btn-ghost  bg-black btn-circle avatar">
-                     <div class="w-10 rounded-full">
-                       <img 
-                         alt="Tailwind CSS Navbar component"
-                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAa42l3k_kysfaWnycHKRi0qaJn_GxU7_JA&s" />
-                     </div>
-                   </div>
-                   <ul
-                     tabindex="-1"
-                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                     <li>
-                       <a class="justify-between">
-                         Profile
-                         <span class="badge">New</span>
-                       </a>
-                     </li>
-                     <li><a>Settings</a></li>
-                     <li><a>Logout</a></li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-      </header>
+  <body class="">
+    <header class="my-10">
+      <div
+        class="navbar bg-base-100 shadow-sm pl-10 w-[70%] mx-auto rounded-[30px]"
+      >
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl">Car Card</a>
+        </div>
+        <div class="flex gap-2">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input rounded-[30px] input-bordered w-24 md:w-auto"
+            id="search"
+          />
+          <div class="dropdown dropdown-end">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost bg-black btn-circle avatar"
+            >
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAa42l3k_kysfaWnycHKRi0qaJn_GxU7_JA&s"
+                />
+              </div>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="grid grid-cols-3 gap-10" id="container"></div>
     <div class="grid grid-cols-3 gap-10" id="loader"></div>
     <template id="templateCard">
-      <div class="card bg-base-100 shadow-sm ">
+      <div class="card bg-base-100 shadow-sm">
         <figure>
           <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+            src="https://wallpaperswide.com/download/mercedes_benz_cls_63_amg_2014-wallpaper-2880x1800.jpg"
             alt="Shoes"
           />
         </figure>
         <div class="card-body">
           <h2 class="card-title"></h2>
+          <h3></h3>
           <p></p>
+          <h4></h4>
           <div class="card-actions justify-end">
             <div class="tooltip" data-tip="Delete">
-              <button
-                class="btn btn-error js-delete-button"
-                
-              >
+              <a href="./department/information.html">Batafsil</a>
+              <button class="btn btn-error js-delete-button">
                 <svg
                   class="text-white pointer-events-none"
                   width="15"
@@ -97,6 +108,12 @@
         </div>
       </div>
     </template>
+    <div class="flex my-10 gap-10 pl-5 items-center justify-center">
+      <div class="flex gap-10">
+        <button class="btn btn-info" id="prev">Prev</button>
+        <button class="btn btn-info" id="next">Next</button>
+      </div>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
