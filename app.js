@@ -7,11 +7,12 @@ const elPrev = document.getElementById("prev");
 const elNext = document.getElementById("next");
 
 let limit = 3;
-let skip = 6;
-
+let skip = 0;
+loader(true);
 function request() {
-  loader(true);
-  fetch("https://json-api.uz/api/project/fn44-amaliyot/cars?limit=3&skip=6")
+  fetch(
+    `https://json-api.uz/api/project/fn44-amaliyot/cars?limit=${limit}&skip=${skip}`
+  )
     .then((res) => {
       return res.json();
     })
@@ -25,9 +26,6 @@ function request() {
       loader(false);
     });
 }
-
-request();
-
 function loader(boolean) {
   elLoader.innerHTML = null;
 
@@ -38,13 +36,19 @@ function loader(boolean) {
   }
 }
 function ui(data) {
+  if (skip == 0) {
+    elPrev.style.display = "none";
+  } else if (skip != 0) {
+    elPrev.style.display = "inline-block";
+  }
+  elContainer.innerHTML = null;
   data.forEach((element) => {
     const clone = elTemlate.cloneNode(true).content;
 
     clone.querySelector("h2").innerText = element.name
       ? element.name
       : "no title";
-      clone.querySelector("h3").innerText = element.country
+    clone.querySelector("h3").innerText = element.country;
     clone.querySelector("h4").innerText = element.id;
     clone.querySelector("p").innerText = element.description;
     clone.querySelector("img").src = "";
@@ -83,11 +87,10 @@ function deleteCard(id) {
 
 elPrev.addEventListener("click", (evt) => {
   skip -= limit;
-  elContainer.innerHTML = null;
   request();
 });
 elNext.addEventListener("click", (evt) => {
   skip += limit;
-  elContainer.innerHTML = null;
   request();
 });
+request();
