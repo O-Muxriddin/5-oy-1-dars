@@ -5,6 +5,8 @@ let elLoader = document.getElementById("loader");
 let elDelete = document.getElementById("deleteCard");
 const elPrev = document.getElementById("prev");
 const elNext = document.getElementById("next");
+const elBtn = document.getElementById("btn");
+const elInfo = document.getElementById("info");
 
 let limit = 3;
 let skip = 0;
@@ -53,7 +55,7 @@ function ui(data) {
     clone.querySelector("p").innerText = element.description;
     clone.querySelector("img").src = "";
     clone.querySelector("button").id = element.id;
-
+    clone.querySelector("#btn").href = window.location.origin+"/department/information.html?id="+element.id;
     elContainer.appendChild(clone);
   });
 }

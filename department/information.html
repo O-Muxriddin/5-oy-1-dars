@@ -3,121 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Information</title>
+    <title>Informations</title>
     <link rel="stylesheet" href="../css/output.css" />
   </head>
-  <body>
-    <header>
-      <div class="">
-        <a
-          href="../index.html"
-          class="ml-20 mt-5 mb-4 text-2xl inline-flex items-center gap-2 border border-gray-400 p-2 rounded hover:bg-blue-500"
-        >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 15 15"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+  <body class="text-black">
+    <!-- navbar -->
+    <div
+      class="navbar bg-base-100 shadow-2xl mt-4 w-300 m-w-300 ml-auto mr-auto"
+    >
+      <a class="btn btn-ghost text-xl">Information about cars</a>
+    </div>
+    <template class="" id="ui_template">
+      <div
+        class="flex flex-col justify-center pl-10 mt-20 border bg-transparent border-stone-700 w-75 m-w-75 ml-auto mr-auto gap-3 hover:border-none hover:bg-gray-400 rounded-md"
+      >
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Name:&nbsp &nbsp</span>
+          <h2 class="js-data-name"></h2>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Trim:&nbsp &nbsp</span>
+          <p class="trim"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Generation:&nbsp &nbsp</span>
+          <p class="generation"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Year:&nbsp</span>
+          <p class="year"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold"> Colorname:&nbsp &nbsp</span>
+          <p class="colorName"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Category:&nbsp &nbsp</span>
+          <p class="category"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Door Count:&nbsp &nbsp</span>
+          <p class="doorCount"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Seat count:&nbsp &nbsp</span>
+          <p class="seatCount"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Max Speed:&nbsp &nbsp</span>
+          <p class="maxSpeed"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold"
+            >Acceleration:&nbsp &nbsp</span
           >
-            <path
-              d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-          Back</a
+          <p class="acceleration"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Engine:&nbsp &nbsp</span>
+          <p class="engine"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Horse Power:&nbsp &nbsp</span>
+          <p class="horsePower"></p>
+        </div>
+        <div class="flex">
+          <span class="text-yellow-700 font-bold">Fuel Type:&nbsp &nbsp</span>
+          <p class="fuelType"></p>
+        </div>
+      </div>
+    </template>
+
+    <!-- Back button -->
+    <div class="tooltip flex fixed mt-10 ml-8" data-tip="Home page">
+      <a href="/index.html"
+        ><button
+          class="p-4 pl-6 pr-6 border border-stone-700 hover:border-none hover:bg-gray-400 rounded-md"
         >
-      </div>
-    </header>
-    <main class="grid grid-cols md:grid-cols-2 gap-8 ml-20 mb-10">
-      <div>
-        <h2 class="text-xl font-semibold mb-2">Uzbek tili</h2>
-        <ul class="space-y-2 text-gray-800">
-          <li><strong>Nomi:</strong> Chevrolet Malibu</li>
-          <li><strong>Trim:</strong> LT</li>
-          <li><strong>Avlod:</strong> Eighth</li>
-          <li><strong>Yil:</strong> 2022</li>
-          <li class="flex items-center gap-2">
-            <strong>Rang:</strong>
-            <span
-              class="inline-block w-4 h-4 rounded-full border"
-              style="background-color: #4682b4"
-            ></span>
-            Polat ko'k
-          </li>
-          <li><strong>Kategoriya:</strong> Sedan</li>
-          <li><strong>Eshiklar soni:</strong> 4 ta</li>
-          <li><strong>O‘rindiqlar soni:</strong> 5 ta</li>
-          <li><strong>Maksimal tezlik:</strong> 210 km/h</li>
-          <li><strong>Tezlanish:</strong> 0–100 km/h — 8.6 soniya</li>
-          <li><strong>Dvigatel:</strong> 1.5L Turbo I4</li>
-          <li><strong>Ot kuchi:</strong> 160 HP</li>
-          <li><strong>Yoqilg‘i turi:</strong> Benzin</li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-xl font-semibold mb-2">Ingliz tili</h2>
-        <ul class="space-y-2 text-gray-800">
-          <li><strong>Name:</strong> Chevrolet Malibu</li>
-          <li><strong>Trim:</strong> LT</li>
-          <li><strong>Generation:</strong> Eighth</li>
-          <li><strong>Year:</strong> 2022</li>
+          <span class="pr-1">←</span>Orqaga
+        </button></a
+      >
+    </div>
 
-          <li class="flex items-center gap-2">
-            <strong>Color:</strong>
-            <span
-              class="inline-block w-4 h-4 rounded-full border"
-              style="background-color: #4682b4"
-            ></span>
-            Steel Blue
-          </li>
+    <div class="js-details-box"></div>
 
-          <li><strong>Category:</strong> Sedan</li>
-          <li><strong>Doors:</strong> 4</li>
-          <li><strong>Seats:</strong> 5</li>
-          <li><strong>Top Speed:</strong> 210 km/h</li>
-          <li><strong>Acceleration:</strong> 0–100 km/h in 8.6s</li>
-          <li><strong>Engine:</strong> 1.5L Turbo I4</li>
-          <li><strong>Horsepower:</strong> 160 HP</li>
-          <li><strong>Fuel Type:</strong> Petrol</li>
-        </ul>
-      </div>
-    </main>
-    <footer>
-      <div class="tabs tabs-lift">
-        <input
-          type="radio"
-          name="my_tabs_3"
-          class="tab"
-          aria-label="Ctiy or Shahar"
-        />
-        <div class="tab-content bg-base-100 border-base-300 p-6">
-          9.2 L/100km
-        </div>
-
-        <input
-          type="radio"
-          name="my_tabs_3"
-          class="tab"
-          aria-label="Highway or Trassa"
-          checked="checked"
-        />
-        <div class="tab-content bg-base-100 border-base-300 p-6">
-          6.7 L/100km
-        </div>
-
-        <input
-          type="radio"
-          name="my_tabs_3"
-          class="tab"
-          aria-label="Combined or Ikkalasida"
-        />
-        <div class="tab-content bg-base-100 border-base-300 p-6">
-          8.1 L/100km
-        </div>
-      </div>
-    </footer>
+    <script src="../js/information.js"></script>
   </body>
 </html>
