@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="css/output.css" />
   </head>
   <body class="">
-    <header class="my-10">
-      <div
+    <header class="container mx-auto py-3 border-b border-slate-400">
+      <div class="flex w-full justify-end pr-12">
+        <button class="btn btn-primary" onclick="my_modal_3.showModal()">
+          +Add
+        </button>
+      </div>
+      <!-- <div
         class="navbar bg-base-100 shadow-sm pl-10 w-[70%] mx-auto rounded-[30px]"
       >
         <div class="flex-1">
@@ -49,30 +54,29 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
     </header>
     <!-- MAin -->
-    <div class="grid grid-cols-3 gap-10" id="container"></div>
+    <div class="grid grid-cols-3 mt-10 gap-10" id="container"></div>
     <div class="grid grid-cols-3 gap-10" id="loader"></div>
     <template id="templateCard">
-      <div class="card bg-base-100 shadow-sm">
-        <figure>
+      <div class="card bg-base-100 shadow-sm max-w-80">
+        <!-- <figure>
           <img
-            src="https://wallpaperswide.com/download/mercedes_benz_cls_63_amg_2014-wallpaper-2880x1800.jpg"
-            alt="Shoes"
-          />
-        </figure>
+          src="https://wallpaperswide.com/download/mercedes_benz_cls_63_amg_2014-wallpaper-2880x1800.jpg""
+          alt="Shoes" />
+        </figure> -->
         <div class="card-body">
           <h2 class="card-title"></h2>
           <h3></h3>
           <p></p>
           <h4></h4>
           <div class="card-actions justify-end">
+            <a href="./department/information.html" target="_blank" id="btn"
+              >Batafsil</a
+            >
             <div class="tooltip" data-tip="Delete">
-              <a href="./department/information.html" target="_blank" id="btn"
-                >Batafsil</a
-              >
-              <button class="btn btn-error js-delete-button">
+              <button class="btn btn-error js-delete-button" id="delBtn">
                 <svg
                   class="text-white pointer-events-none"
                   width="15"
@@ -112,6 +116,138 @@
         </div>
       </div>
     </template>
+    <!-- toast -->
+    <template id="toastTemplate">
+      <div role="alert" class="alert alert-info">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="h-6 w-6 shrink-0 stroke-current"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          ></path>
+        </svg>
+        <span>New software update available.</span>
+      </div>
+    </template>
+    <div id="toast" class="fixed top-5 right-5 flex flex-col gap-3"></div>
+    <!-- Add modal  -->
+    <div>
+      <dialog id="my_modal_3" class="modal">
+        <div class="modal-box">
+          <form method="dialog">
+            <button
+              class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              ✕
+            </button>
+          </form>
+          <h3 class="text-lg font-bold">Yangi mashina qo'shish</h3>
+          <p class="py-4">
+            Yangi mashina qo'shish uchun ma'lumotlarni kiriting!
+          </p>
+          <form class="flex flex-col gap-2" id="carAddForm">
+            <input
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Mashina nomini yozing"
+              class="input w-full"
+            />
+            <input
+              name="year"
+              id="year"
+              type="number"
+              min="1994"
+              max="2026"
+              placeholder="Mashina chiqarilgan yil "
+              class="input w-full"
+            />
+            <input
+              name="generation"
+              type="text"
+              placeholder="Avlodi "
+              class="input w-full"
+            />
+            <div class="flex gap-2" id="color">
+              <strong>Rang:</strong>
+              <input type="color" name="color" placeholder="" class="input" />
+            </div>
+            <label id="speed" name="maxSpeed" class="input">
+              <input
+                type="text"
+                class="grow w-full"
+                placeholder="Mashina tezligi "
+              />
+              km/h
+            </label>
+            <select name="category" class="select appearance-none w-full">
+              <option disabled selected value="Sedan">Sedan</option>
+              <option value="Yo'ltanlamas">Yo'ltanlamas</option>
+              <option value="Krossover">Krossover</option>
+              <option value="Universal">Universal</option>
+              <option value="Ochiq tomli mashina">Ochiq tomli mashina</option>
+              <option value="Pikap">Pikap</option>
+            </select>
+            <input
+              name="horsepower"
+              id="horse"
+              type="number"
+              min="38"
+              max="1000"
+              placeholder="Ot kuchi"
+              class="input w-full"
+            />
+            <input
+              name="doorCount"
+              type="number"
+              min="2"
+              max="6"
+              placeholder="Eshiklar soni"
+              class="input w-full"
+            />
+            <input
+              name="seatCount"
+              type="number"
+              min="2.0"
+              max="6.0"
+              placeholder="Orindiqlar soni"
+              class="input w-full"
+            />
+            <label name="acceleration" class="input">
+              0-100 km/h :
+              <input
+                type="text"
+                class="grow w-full"
+                placeholder="Mashina 0-100gacha tezlanishi "
+              />
+            </label>
+            <input
+              name="engine"
+              type="number"
+              min="0.5"
+              max="7.0"
+              placeholder="Mator hajmi"
+              class="input w-full"
+            />
+            <select name="fuelType" class="select appearance-none w-full">
+              <option disabled selected>Yoqilg'i turi</option>
+              <option></option>
+              <option value="Benzin">Benzin</option>
+              <option value="Gbrit">Gbrit</option>
+              <option value="Elektr">Elektr</option>
+            </select>
+            <button id="btnSubmition" class="btn w-ful">Tasdiqlash</button>
+          </form>
+        </div>
+      </dialog>
+    </div>
+
     <div class="flex my-10 gap-10 pl-5 items-center justify-center">
       <div class="flex gap-10">
         <button

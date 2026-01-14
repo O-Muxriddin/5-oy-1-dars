@@ -7,6 +7,12 @@ const elPrev = document.getElementById("prev");
 const elNext = document.getElementById("next");
 const elBtn = document.getElementById("btn");
 const elInfo = document.getElementById("info");
+const elCarBtn = document.getElementById("btnSubmition");
+const elCarName = document.getElementById("name");
+const elCarYear = document.getElementById("year");
+const elToastTemplate = document.getElementById("toastTemplate");
+const elToast = document.getElementById("toast");
+const elCarForm = document.getElementById("carAddForm");
 
 let limit = 3;
 let skip = 0;
@@ -53,9 +59,9 @@ function ui(data) {
     clone.querySelector("h3").innerText = element.country;
     clone.querySelector("h4").innerText = element.id;
     clone.querySelector("p").innerText = element.description;
-    clone.querySelector("img").src = "";
     clone.querySelector("button").id = element.id;
-    clone.querySelector("#btn").href = window.location.origin+"/department/information.html?id="+element.id;
+    clone.querySelector("#btn").href =
+      window.location.origin + "/department/information.html?id=" + element.id;
     elContainer.appendChild(clone);
   });
 }
@@ -96,3 +102,24 @@ elNext.addEventListener("click", (evt) => {
   request();
 });
 request();
+
+elCarForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const formData = new FormData(elCarForm);
+  const obj = {};
+
+  formData.forEach((value, key) => {
+    obj[key] = value;
+  });
+  for (let key in obj) {
+    if (obj[key] == "") {
+      const clone = elToastTemplate.cloneNode(true).content;
+      clone.querySelector("span").innerText = `${key} joyni to'ldring`;
+      elToast.appendChild(clone);
+
+      setTimeout(() => {
+        document.querySelector(`[role="alert"]`).remove();
+      }, 1000);
+    }
+  }
+});
