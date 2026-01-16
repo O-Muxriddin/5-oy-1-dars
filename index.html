@@ -1,71 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="CarHub" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Title -->
+    <title>CarHub</title>
     <link rel="stylesheet" href="css/output.css" />
   </head>
-  <body class="">
-    <header class="container mx-auto py-3 border-b border-slate-400">
-      <div class="flex w-full justify-end pr-12">
-        <button class="btn btn-primary" onclick="my_modal_3.showModal()">
-          +Add
-        </button>
+  <body>
+    <header class="container mx-auto py-3 w-[50%] border-slate-400">
+      <div class="navbar bg-base-100 shadow-sm rounded-[50px]">
+        <div class="navbar-start pl-5">
+          <a class="text-xl">CarHub</a>
+        </div>
+        <div class="flex w-full justify-end pr-12">
+          <button class="btn btn-primary" onclick="my_modal_3.showModal()">
+            +Add
+          </button>
+        </div>
+               <div class="">
+          <button class="btn dark__mode">🌙 Dark</button>
+          <button class="btn hidden light__mode">☀️ Light</button>
+        </div>
+
       </div>
-      <!-- <div
-        class="navbar bg-base-100 shadow-sm pl-10 w-[70%] mx-auto rounded-[30px]"
-      >
-        <div class="flex-1">
-          <a class="btn btn-ghost text-xl">Car Card</a>
-        </div>
-        <div class="flex gap-2">
-          <input
-            type="text"
-            placeholder="Search"
-            class="input rounded-[30px] input-bordered w-24 md:w-auto"
-            id="search"
-          />
-          <div class="dropdown dropdown-end">
-            <div
-              tabindex="0"
-              role="button"
-              class="btn btn-ghost bg-black btn-circle avatar"
-            >
-              <div class="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgAa42l3k_kysfaWnycHKRi0qaJn_GxU7_JA&s"
-                />
-              </div>
-            </div>
-            <ul
-              tabindex="-1"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a class="justify-between">
-                  Profile
-                  <span class="badge">New</span>
-                </a>
-              </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
     </header>
     <!-- MAin -->
     <div class="grid grid-cols-3 mt-10 gap-10" id="container"></div>
     <div class="grid grid-cols-3 gap-10" id="loader"></div>
-    <template id="templateCard">
-      <div class="card bg-base-100 shadow-sm max-w-80">
-        <!-- <figure>
-          <img
-          src="https://wallpaperswide.com/download/mercedes_benz_cls_63_amg_2014-wallpaper-2880x1800.jpg""
-          alt="Shoes" />
-        </figure> -->
+    <template class="" id="templateCard">
+      <div class="card bg-base-100 shadow-sm">
         <div class="card-body">
           <h2 class="card-title"></h2>
           <h3></h3>
@@ -73,8 +44,28 @@
           <h4></h4>
           <div class="card-actions justify-end">
             <a href="./department/information.html" target="_blank" id="btn"
-              >Batafsil</a
+              ><button class="btn btn-sm btn-neutral hover:bg">
+                Batafsil
+              </button></a
             >
+            <div class="tooltip" data-tip="Tahrirlash">
+              <button class="btn btn-accent js-edit-button" id="editBtn">
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.8536 1.14645C11.6583 0.951184 11.3417 0.951184 11.1465 1.14645L3.71455 8.57836C3.62459 8.66832 3.55263 8.77461 3.50251 8.89155L2.04044 12.303C1.9599 12.491 2.00189 12.709 2.14646 12.8536C2.29103 12.9981 2.50905 13.0401 2.69697 12.9596L6.10847 11.4975C6.2254 11.4474 6.3317 11.3754 6.42166 11.2855L13.8536 3.85355C14.0488 3.65829 14.0488 3.34171 13.8536 3.14645L11.8536 1.14645ZM4.42166 9.28547L11.5 2.20711L12.7929 3.5L5.71455 10.5784L4.21924 11.2192L3.78081 10.7808L4.42166 9.28547Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
             <div class="tooltip" data-tip="O'chrish">
               <button class="btn btn-error js-delete-button" id="delBtn">
                 <svg
@@ -137,6 +128,140 @@
     </template>
     <div id="toast" class="fixed top-5 right-5 flex flex-col gap-3"></div>
     <!-- Add modal  -->
+
+    <dialog id="editModal" class="modal">
+      <div class="modal-box">
+        <form method="dialog">
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
+            ✕
+          </button>
+        </form>
+        <h3 class="text-lg font-bold">Malumotlarni tahrirlash</h3>
+        <p class="py-4">Malumotlarni yangilang!</p>
+        <form class="flex flex-col gap-2" id="carEditForm">
+          <input
+            name="name"
+            id="name"
+            type="text"
+            placeholder="Mashina nomini yozing"
+            class="input w-full"
+          />
+          <input
+            name="year"
+            id="year"
+            type="number"
+            min="1994"
+            max="2026"
+            placeholder="Mashina chiqarilgan yil "
+            class="input w-full"
+          />
+          <input
+            name="trim"
+            type="text"
+            placeholder="Mashina turi "
+            class="input w-full"
+          />
+          <input
+            name="generation"
+            type="text"
+            placeholder="Avlodi "
+            class="input w-full"
+          />
+          <div class="flex gap-2" id="color">
+            <strong>Rang:</strong>
+            <input type="color" name="color" placeholder="" class="input" />
+          </div>
+          <label id="speed" class="input">
+            <input
+              name="maxSpeed"
+              type="text"
+              class="grow w-full"
+              placeholder="Mashina tezligi "
+            />
+            km/h
+          </label>
+          <input
+            name="colorName"
+            type="text"
+            placeholder="Rang nomi"
+            class="input w-full"
+          />
+          <select name="category" class="select appearance-none w-full">
+            <option disabled selected>Mashina turi</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Yo'ltanlamas">Yo'ltanlamas</option>
+            <option value="Krossover">Krossover</option>
+            <option value="Universal">Universal</option>
+            <option value="Ochiq tomli mashina">Ochiq tomli mashina</option>
+            <option value="Pikap">Pikap</option>
+          </select>
+          <input
+            name="horsepower"
+            id="horse"
+            type="number"
+            min="38"
+            max="1000"
+            placeholder="Ot kuchi"
+            class="input w-full"
+          />
+          <input
+            name="doorCount"
+            type="number"
+            min="2"
+            max="6"
+            placeholder="Eshiklar soni"
+            class="input w-full"
+          />
+          <input
+            name="seatCount"
+            type="number"
+            min="2"
+            max="10"
+            placeholder="Orindiqlar soni"
+            class="input w-full"
+          />
+          <label class="input">
+            0-100 km/h :
+            <input
+              name="acceleration"
+              type="number"
+              class="grow w-full"
+              placeholder="Mashina 0-100gacha tezlanishi "
+            />
+          </label>
+          <input
+            name="engine"
+            type="number"
+            min="0.5"
+            max="7.0"
+            placeholder="Mator hajmi"
+            class="input w-full"
+          />
+          <select name="fuelType" class="select appearance-none w-full">
+            <option disabled selected>Yoqilg'i turi</option>
+            <option></option>
+            <option value="Benzin">Benzin</option>
+            <option value="Gbrit">Gbrit</option>
+            <option value="Elektr">Elektr</option>
+          </select>
+          <input
+            name="country"
+            type="text"
+            placeholder="Davlatni yozing"
+            class="input w-full"
+          />
+          <textarea
+            class="textarea"
+            name="description"
+            placeholder="Izoh"
+          ></textarea>
+          <button id="btnSubmition" class="btn w-ful">Tasdiqlash</button>
+        </form>
+      </div>
+    </dialog>
+
     <div>
       <dialog id="my_modal_3" class="modal">
         <div class="modal-box">
@@ -169,6 +294,12 @@
               class="input w-full"
             />
             <input
+              name="trim"
+              type="text"
+              placeholder="Mashina turi "
+              class="input w-full"
+            />
+            <input
               name="generation"
               type="text"
               placeholder="Avlodi "
@@ -178,14 +309,21 @@
               <strong>Rang:</strong>
               <input type="color" name="color" placeholder="" class="input" />
             </div>
-            <label id="speed" name="maxSpeed" class="input">
+            <label id="speed" class="input">
               <input
+                name="maxSpeed"
                 type="text"
                 class="grow w-full"
                 placeholder="Mashina tezligi "
               />
               km/h
             </label>
+            <input
+              name="colorName"
+              type="text"
+              placeholder="Rang nomi"
+              class="input w-full"
+            />
             <select name="category" class="select appearance-none w-full">
               <option disabled selected>Mashina turi</option>
               <option value="Sedan">Sedan</option>
@@ -215,15 +353,16 @@
             <input
               name="seatCount"
               type="number"
-              min="2.0"
-              max="6.0"
+              min="2"
+              max="10"
               placeholder="Orindiqlar soni"
               class="input w-full"
             />
-            <label name="acceleration" class="input">
+            <label class="input">
               0-100 km/h :
               <input
-                type="text"
+                name="acceleration"
+                type="number"
                 class="grow w-full"
                 placeholder="Mashina 0-100gacha tezlanishi "
               />
@@ -243,6 +382,17 @@
               <option value="Gbrit">Gbrit</option>
               <option value="Elektr">Elektr</option>
             </select>
+            <input
+              name="country"
+              type="text"
+              placeholder="Davlatni yozing"
+              class="input w-full"
+            />
+            <textarea
+              class="textarea"
+              name="description"
+              placeholder="Izoh"
+            ></textarea>
             <button id="btnSubmition" class="btn w-ful">Tasdiqlash</button>
           </form>
         </div>
