@@ -174,7 +174,7 @@ function add(data) {
 
 fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editId}`, {
   method: "PATCH",
-  headers: {
+  headers: { 
     "Content-Type": "application/json",
   },
   body: JSON.stringify(data),
