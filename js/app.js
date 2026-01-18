@@ -15,6 +15,7 @@ const elToast = document.getElementById("toast");
 const elCarForm = document.getElementById("carAddForm");
 const elEditModal = document.getElementById("editModal");
 const elAddButton = document.querySelector(".js-add-button");
+const elRegForm = document.getElementById("editBtn");
 let editId = null;
 
 let limit = 3;
@@ -201,6 +202,8 @@ fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editId}`, {
     request();
   });
 
+// login tekshirish
+
 function isLogin() {
   if (localStorage.getItem("token") === null) {
     return false;
@@ -215,5 +218,22 @@ elAddButton.addEventListener("click", () => {
     document.getElementById("my_modal_3").showModal();
   } else {
     location.href = "./login.html";
+  }
+});
+
+// register tekshirish
+function isregister() {
+  if (localStorage.getItem("token") === null) {
+    return false;
+  } else {
+    return true;
+  }
+}
+elRegForm.addEventListener("click", () => {
+  const check = isregister();
+  if (check) {
+    document.getElementById("editModal").showModal();
+  } else {
+    location.href = "./register.html";
   }
 });

@@ -5,17 +5,17 @@ const elButton = document.getElementById("js-loader-button");
 const btnLoader = document.getElementById("btnLoader");
 
 // loader button
-elButton.addEventListener("click", () => {
-  btnLoader.classList.remove("hidden");
-  btnLoader.classList.add("opacity-100");
+// elButton.addEventListener("click", () => {
+//   btnLoader.classList.remove("hidden");
+//   btnLoader.classList.add("opacity-100");
 
-  setTimeout(() => {
-    btnLoader.classList.add("opacity-0");
-    setTimeout(() => {
-      btnLoader.classList.add("hidden");
-    }, 3000);
-  }, 15000);
-});
+//   setTimeout(() => {
+//     btnLoader.classList.add("opacity-0");
+//     setTimeout(() => {
+//       btnLoader.classList.add("hidden");
+//     }, 3000);
+//   }, 15000);
+// });
 
 elLoginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -31,7 +31,7 @@ elLoginForm.addEventListener("submit", (e) => {
     const remaining = Math.max(MIN_LOAD_TIME - elapsed, 0);
 
     setTimeout(() => {
-      loader.classList.add("opacity-0"); // fade out
+      loader.classList.add("opacity-0"); 
       setTimeout(() => {
         loader.style.display = "none";
       }, 3000);
