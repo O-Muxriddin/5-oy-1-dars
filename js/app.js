@@ -209,11 +209,11 @@ function isLogin() {
   }
 }
 
-elAddButton.addEventListener("click", (e) => {
+elAddButton.addEventListener("click", () => {
   const check = isLogin();
   if (check) {
     document.getElementById("my_modal_3").showModal();
   } else {
     location.href = "./login.html";
-  } 
+  }
 });
