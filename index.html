@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="data-theme="dark">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,15 +21,17 @@
           <a class="text-xl">CarHub</a>
         </div>
         <div class="flex w-full justify-end pr-12">
-          <button class="btn btn-primary" onclick="my_modal_3.showModal()">
-            +Add
+          <button
+            class="btn btn-primary js-add-button"
+            onclick="my_modal_3.showModal()"
+          >
+            +Add Car
           </button>
         </div>
-               <div class="">
+        <div class="rounded-[50%]">
           <button class="btn dark__mode">🌙 Dark</button>
           <button class="btn hidden light__mode">☀️ Light</button>
         </div>
-
       </div>
     </header>
     <!-- MAin -->
@@ -107,6 +109,7 @@
         </div>
       </div>
     </template>
+
     <!-- toast -->
     <template id="toastTemplate">
       <div role="alert" class="alert alert-info">
@@ -413,5 +416,6 @@
       </div>
     </div>
     <script src="./js/app.js"></script>
+    <script type="module" src="./js/darkmode.js"></script>
   </body>
 </html>

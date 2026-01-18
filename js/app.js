@@ -14,6 +14,8 @@ const elToastTemplate = document.getElementById("toastTemplate");
 const elToast = document.getElementById("toast");
 const elCarForm = document.getElementById("carAddForm");
 const elEditModal = document.getElementById("editModal");
+const elAddButton = document.querySelector(".js-add-button");
+let editId = null;
 
 let limit = 3;
 let skip = 0;
@@ -132,7 +134,18 @@ function getById(id) {
       return res.json();
     })
     .then((res) => {
+      editId = id;
       elEditModal.showModal();
+      elEditModal.name.value = res.name;
+      elEditModal.country.value = res.country;
+      elEditModal.description.value = res.description;
+      elEditModal.year.value = res.year;
+      elEditModal.trim.value = res.trim;
+      elEditModal.generation.value = res.generation;
+      elEditModal.color.value = res.color;
+      elEditModal.maxSpeed.value = res.maxSpeed;
+      elEditModal.colorName.value = res.colorName;
+      elEditModal.category.value = res.category;
     })
     .catch(() => {})
     .finally(() => {});
@@ -174,7 +187,7 @@ function add(data) {
 
 fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editId}`, {
   method: "PATCH",
-  headers: { 
+  headers: {
     "Content-Type": "application/json",
   },
   body: JSON.stringify(data),
@@ -188,33 +201,19 @@ fetch(`https://json-api.uz/api/project/fn44-amaliyot/cars/${editId}`, {
     request();
   });
 
-// Dark mode
-
-let elHtml = document.documentElement;
-let elDarkBtn = document.querySelector(".dark__mode");
-let elLightBtn = document.querySelector(".light__mode");
-let savedMode = localStorage.getItem("mode");
-
-elDarkBtn.addEventListener("click", () => {
-  elHtml.setAttribute("data-theme", "dark");
-  elDarkBtn.classList.add("hidden");
-  elLightBtn.classList.remove("hidden");
-  localStorage.setItem("mode", "dark");
-});
-
-elLightBtn.addEventListener("click", () => {
-  elHtml.setAttribute("data-theme", "light");
-  elLightBtn.classList.add("hidden");
-  elDarkBtn.classList.remove("hidden");
-  localStorage.setItem("mode", "light");
-});
-
-if (savedMode === "dark") {
-  elHtml.setAttribute("data-theme", "dark");
-  elDarkBtn.classList.add("hidden");
-  elLightBtn.classList.remove("hidden");
-} else {
-  elHtml.setAttribute("data-theme", "light");
-  elLightBtn.classList.add("hidden");
-  elDarkBtn.classList.remove("hidden");
+function isLogin() {
+  if (localStorage.getItem("token") === null) {
+    return false;
+  } else {
+    return true;
+  }
 }
+
+elAddButton.addEventListener("click", (e) => {
+  const check = isLogin();
+  if (check) {
+    document.getElementById("my_modal_3").showModal();
+  } else {
+    location.href = "./login.html";
+  } 
+});
