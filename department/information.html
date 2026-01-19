@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,16 +6,26 @@
     <title>Informations</title>
     <link rel="stylesheet" href="../css/output.css" />
   </head>
-  <body class="text-black">
+  <body class="text-black overflow-x-hidden">
     <!-- navbar -->
     <div
-      class="navbar flex justify-center bg-base-100 border-b mt-4 w-300 m-w-300 ml-auto mr-auto"
+      class="navbar flex justify-start bg-base-100 border-b mt-4 w-300 m-w-300 ml-auto mr-auto"
     >
-      <h1 class="text-2xl">Information about cars</h1>
+      <div>
+        <h1 class="text-2xl">Information about cars</h1>
+      </div>
+      <div class="flex flex-col justify-end ml-auto mr-8 gap-2">
+        <button class="btn dark__mode cursor-pointer rounded-[50px]">
+          🌙 
+        </button>
+        <button class="btn hidden light__mode cursor-pointer rounded-[50px]">
+          ☀️ 
+        </button>
+      </div>
     </div>
     <template id="ui_template">
       <div
-        class="flex-col justify-center mt-20 border bg-transparent border-stone-700 max-w-87.5 py-4 px-6 ml-auto mr-auto gap-3 rounded-md"
+        class="flex-col justify-center mt-20 border bg-transparent border-stone-700 max-w-87.5 py-4 px-6 ml-auto mr-auto gap-3 rounded-md sm:ml-100"
       >
         <div class="flex">
           <span class="text-gray-900 font-bold">Name:&nbsp &nbsp</span>
@@ -85,5 +95,6 @@
     <div class="js-details-box"></div>
 
     <script src="../js/information.js"></script>
+    <script type="module" src="../js/darkmode.js"></script>
   </body>
 </html>
